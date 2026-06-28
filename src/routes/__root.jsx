@@ -5,8 +5,9 @@ import {
   createRootRouteWithContext,
   useRouter,
   HeadContent,
-  Scripts } from
-"@tanstack/react-router";
+  Scripts
+} from
+  "@tanstack/react-router";
 import { useEffect } from "react";
 
 import appCss from "../styles.css?url";
@@ -30,7 +31,7 @@ function NotFoundComponent() {
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
-            
+
             Go home
           </Link>
         </div>
@@ -62,13 +63,13 @@ function ErrorComponent({ error, reset }) {
               reset();
             }}
             className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
-            
+
             Try again
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent">
-            
+
             Go home
           </a>
         </div>
@@ -80,35 +81,36 @@ function ErrorComponent({ error, reset }) {
 export const Route = createRootRouteWithContext()({
   head: () => ({
     meta: [
-    { charSet: "utf-8" },
-    { name: "viewport", content: "width=device-width, initial-scale=1" },
-    { title: "The Finance Insights — Learn the Stock Market the Smart Way" },
-    {
-      name: "description",
-      content:
-      "Master candlestick patterns, chart patterns, technical analysis, and finance basics through simple, visual explanations. Insights that build wealth."
-    },
-    { name: "author", content: "The Finance Insights" },
-    { property: "og:title", content: "The Finance Insights" },
-    {
-      property: "og:description",
-      content: "Learn the stock market the smart way — visual finance education."
-    },
-    { property: "og:type", content: "website" },
-    { name: "twitter:card", content: "summary_large_image" }],
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "The Finance Insights — Learn the Stock Market the Smart Way" },
+      {
+        name: "description",
+        content:
+          "Master candlestick patterns, chart patterns, technical analysis, and finance basics through simple, visual explanations. Insights that build wealth."
+      },
+      { name: "author", content: "The Finance Insights" },
+      { property: "og:title", content: "The Finance Insights" },
+      {
+        property: "og:description",
+        content: "Learn the stock market the smart way — visual finance education."
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" }],
 
     links: [
-    { rel: "stylesheet", href: appCss },
-    { rel: "preconnect", href: "https://fonts.googleapis.com" },
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      crossOrigin: "anonymous"
-    },
-    {
-      rel: "stylesheet",
-      href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
-    }]
+      { rel: "stylesheet", href: appCss },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous"
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      }
+    ]
 
   }),
   shellComponent: RootShell,

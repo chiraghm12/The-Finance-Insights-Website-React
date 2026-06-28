@@ -45,9 +45,9 @@
   --color-surface: var(--surface);
 
   --font-display:
-    "Sora", ui-sans-serif, system-ui, sans-serif;
+    "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-sans:
-    "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    "Poppins", ui-sans-serif, system-ui, sans-serif;
 
   --shadow-soft: var(--shadow-soft-val);
   --shadow-card: var(--shadow-card-val);

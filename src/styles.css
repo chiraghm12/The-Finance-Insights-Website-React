@@ -69,43 +69,43 @@
 
   --surface: oklch(0.97 0.005 247);
 
-  --primary: oklch(0.32 0.06 250);
-  --primary-foreground: oklch(0.985 0.003 247);
+  --primary: #2563eb;
+  --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.68 0.16 150);
-  --secondary-foreground: oklch(0.99 0.01 160);
+  --secondary: #2563eb;
+  --secondary-foreground: #ffffff;
 
   --muted: oklch(0.96 0.005 247);
   --muted-foreground: oklch(0.5 0.03 257);
 
-  --accent: oklch(0.68 0.16 150);
-  --accent-foreground: oklch(0.99 0.01 160);
+  --accent: #2563eb;
+  --accent-foreground: #ffffff;
 
   --gold: oklch(0.78 0.12 88);
   --gold-foreground: oklch(0.26 0.04 70);
 
-  --success: oklch(0.68 0.16 150);
+  --success: #2563eb;
   --warning: oklch(0.78 0.14 70);
   --destructive: oklch(0.6 0.22 25);
   --destructive-foreground: oklch(0.985 0.003 247);
 
   --border: oklch(0.91 0.01 255);
   --input: oklch(0.91 0.01 255);
-  --ring: oklch(0.68 0.16 150);
+  --ring: #2563eb;
 
-  --shadow-soft-val: 0 1px 2px oklch(0.32 0.06 250 / 0.04), 0 4px 12px oklch(0.32 0.06 250 / 0.05);
-  --shadow-card-val: 0 2px 8px oklch(0.32 0.06 250 / 0.05), 0 12px 32px oklch(0.32 0.06 250 / 0.08);
-  --shadow-elevated-val: 0 8px 24px oklch(0.32 0.06 250 / 0.1), 0 24px 64px oklch(0.32 0.06 250 / 0.14);
-  --shadow-glow-val: 0 0 0 1px oklch(0.68 0.16 150 / 0.2), 0 12px 40px oklch(0.68 0.16 150 / 0.25);
+  --shadow-soft-val: 0 1px 2px #2563eb0a, 0 4px 12px #2563eb0d;
+  --shadow-card-val: 0 2px 8px #2563eb0d, 0 12px 32px #2563eb14;
+  --shadow-elevated-val: 0 8px 24px #2563eb1a, 0 24px 64px #2563eb24;
+  --shadow-glow-val: 0 0 0 1px #2563eb33, 0 12px 40px #2563eb40;
 
   --gradient-hero: radial-gradient(
       1200px 600px at 80% -10%,
-      oklch(0.68 0.16 150 / 0.18),
+      #2563eb2e,
       transparent 60%
     ),
     radial-gradient(900px 500px at 0% 10%, oklch(0.78 0.12 88 / 0.14), transparent 55%);
-  --gradient-primary: linear-gradient(135deg, oklch(0.32 0.06 250), oklch(0.32 0.07 250));
-  --gradient-accent: linear-gradient(135deg, oklch(0.68 0.16 150), oklch(0.72 0.14 175));
+  --gradient-primary: linear-gradient(135deg, #2563eb, #1d4ed8);
+  --gradient-accent: linear-gradient(135deg, #2563eb, #1d4ed8);
   --gradient-gold: linear-gradient(135deg, oklch(0.82 0.12 90), oklch(0.74 0.13 78));
 }
 
@@ -121,42 +121,42 @@
 
   --surface: oklch(0.24 0.04 256);
 
-  --primary: oklch(0.68 0.16 150);
-  --primary-foreground: oklch(0.16 0.03 256);
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
 
-  --secondary: oklch(0.68 0.16 150);
-  --secondary-foreground: oklch(0.16 0.03 256);
+  --secondary: #3b82f6;
+  --secondary-foreground: #ffffff;
 
   --muted: oklch(0.27 0.04 256);
   --muted-foreground: oklch(0.7 0.025 256);
 
-  --accent: oklch(0.68 0.16 150);
-  --accent-foreground: oklch(0.16 0.03 256);
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
 
   --gold: oklch(0.8 0.12 88);
   --gold-foreground: oklch(0.2 0.03 70);
 
-  --success: oklch(0.72 0.16 150);
+  --success: #3b82f6;
   --warning: oklch(0.8 0.14 70);
   --destructive: oklch(0.65 0.2 25);
   --destructive-foreground: oklch(0.985 0.003 247);
 
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.68 0.16 150);
+  --ring: #3b82f6;
 
   --shadow-soft-val: 0 1px 2px oklch(0 0 0 / 0.3), 0 4px 12px oklch(0 0 0 / 0.35);
   --shadow-card-val: 0 2px 8px oklch(0 0 0 / 0.35), 0 12px 32px oklch(0 0 0 / 0.45);
   --shadow-elevated-val: 0 8px 24px oklch(0 0 0 / 0.45), 0 24px 64px oklch(0 0 0 / 0.55);
-  --shadow-glow-val: 0 0 0 1px oklch(0.68 0.16 150 / 0.3), 0 12px 40px oklch(0.68 0.16 150 / 0.3);
+  --shadow-glow-val: 0 0 0 1px #3b82f64d, 0 12px 40px #3b82f64d;
 
   --gradient-hero: radial-gradient(
       1200px 600px at 80% -10%,
-      oklch(0.68 0.16 150 / 0.22),
+      #3b82f638,
       transparent 60%
     ),
     radial-gradient(900px 500px at 0% 10%, oklch(0.78 0.12 88 / 0.12), transparent 55%);
-  --gradient-primary: linear-gradient(135deg, oklch(0.34 0.06 250), oklch(0.34 0.07 250));
+  --gradient-primary: linear-gradient(135deg, #3b82f6, #2563eb);
 }
 
 @layer base {

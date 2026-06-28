@@ -6,12 +6,12 @@ import { Logo } from "./Logo";
 import { useTheme } from "@/context/ThemeContext";
 
 const navItems = [
-{ label: "Home", to: "/" },
-{ label: "Learn", to: "/learn" },
-{ label: "Calculators", to: "/calculators" },
-{ label: "Blog", to: "/blog" },
-{ label: "About", to: "/about" },
-{ label: "Contact", to: "/contact" }];
+  { label: "Home", to: "/" },
+  { label: "Learn", to: "/learn" },
+  { label: "Calculators", to: "/calculators" },
+  { label: "Blog", to: "/blog" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" }];
 
 
 export function Navbar() {
@@ -36,58 +36,59 @@ export function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5">
-      
-      <div
-        className={`mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-2xl px-4 py-2.5 transition-all duration-300 ${
-        scrolled ? "glass-strong shadow-card" : "border border-transparent"}`
-        }>
-        
-        <Logo />
+      className="fixed inset-x-0 top-0 z-50">
 
-        <nav className="hidden items-center gap-1 lg:flex">
+      <div
+        className={`flex w-full items-center justify-between gap-4 px-6 py-3 sm:px-10 transition-all duration-300 ${scrolled ? "glass-strong shadow-card" : "border border-transparent"}`
+        }>
+
+        <div className="flex flex-1 items-center justify-start">
+          <Logo />
+        </div>
+
+        <nav className="hidden items-center justify-center gap-1 lg:flex">
           {navItems.map((item) =>
-          <Link
-            key={item.to}
-            to={item.to}
-            activeOptions={{ exact: item.to === "/" }}
-            className="relative rounded-full px-3.5 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground data-[status=active]:text-foreground">
-            
+            <Link
+              key={item.to}
+              to={item.to}
+              activeOptions={{ exact: item.to === "/" }}
+              className="relative rounded-full px-3.5 py-2 text-sm font-semibold text-muted-foreground transition-colors hover:text-foreground data-[status=active]:text-foreground">
+
               {item.label}
             </Link>
           )}
         </nav>
 
-        <div className="flex items-center gap-1.5">
+        <div className="flex flex-1 items-center justify-end gap-1.5">
           <button
             onClick={() => navigate({ to: "/search" })}
             aria-label="Search"
             className="grid h-9 w-9 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
-            
+
             <Search className="h-[1.05rem] w-[1.05rem]" />
           </button>
           <button
             onClick={toggleTheme}
             aria-label="Toggle dark mode"
             className="grid h-9 w-9 place-items-center rounded-full text-muted-foreground transition-colors hover:bg-muted hover:text-foreground">
-            
-            {theme === "dark" ?
-            <Sun className="h-[1.05rem] w-[1.05rem]" /> :
 
-            <Moon className="h-[1.05rem] w-[1.05rem]" />
+            {theme === "dark" ?
+              <Sun className="h-[1.05rem] w-[1.05rem]" /> :
+
+              <Moon className="h-[1.05rem] w-[1.05rem]" />
             }
           </button>
           <Link
             to="/learn"
             className="ml-1 hidden rounded-full bg-gradient-accent px-4 py-2 text-sm font-bold text-secondary-foreground shadow-soft transition-transform hover:scale-[1.03] sm:inline-flex">
-            
+
             Start Learning
           </Link>
           <button
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Toggle menu"
             className="grid h-9 w-9 place-items-center rounded-full text-foreground lg:hidden">
-            
+
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
@@ -95,23 +96,23 @@ export function Navbar() {
 
       <AnimatePresence>
         {mobileOpen &&
-        <motion.nav
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -12 }}
-          transition={{ duration: 0.25 }}
-          className="glass-strong mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl p-2 shadow-card lg:hidden">
-          
+          <motion.nav
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25 }}
+            className="glass-strong w-full overflow-hidden p-2 shadow-card lg:hidden border-t border-border">
+
             {navItems.map((item) =>
-          <Link
-            key={item.to}
-            to={item.to}
-            activeOptions={{ exact: item.to === "/" }}
-            className="block rounded-xl px-4 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground data-[status=active]:bg-muted data-[status=active]:text-foreground">
-            
+              <Link
+                key={item.to}
+                to={item.to}
+                activeOptions={{ exact: item.to === "/" }}
+                className="block rounded-xl px-4 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:bg-muted hover:text-foreground data-[status=active]:bg-muted data-[status=active]:text-foreground">
+
                 {item.label}
               </Link>
-          )}
+            )}
           </motion.nav>
         }
       </AnimatePresence>

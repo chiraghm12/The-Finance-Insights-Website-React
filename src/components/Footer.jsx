@@ -1,23 +1,24 @@
 import { Link } from "@tanstack/react-router";
-import { FaInstagram, FaXTwitter, FaYoutube, FaLinkedin } from "react-icons/fa6";
+import { FaInstagram, FaXTwitter, FaYoutube, FaFacebook } from "react-icons/fa6";
 import { Logo } from "./Logo";
 import { Newsletter } from "./Newsletter";
 import { categories } from "@/data/categories";
 
 const quickLinks = [
-{ label: "Home", to: "/" },
-{ label: "Learn", to: "/learn" },
-{ label: "Calculators", to: "/calculators" },
-{ label: "Blog", to: "/blog" },
-{ label: "About", to: "/about" },
-{ label: "Contact", to: "/contact" }];
+  { label: "Home", to: "/" },
+  { label: "Learn", to: "/learn" },
+  { label: "Calculators", to: "/calculators" },
+  { label: "Blog", to: "/blog" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" }];
 
 
 const socials = [
-{ icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
-{ icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-{ icon: FaXTwitter, href: "https://x.com", label: "X (Twitter)" },
-{ icon: FaLinkedin, href: "https://linkedin.com", label: "LinkedIn" }];
+  { icon: FaYoutube, href: import.meta.env.VITE_SOCIAL_YOUTUBE || "https://youtube.com", label: "YouTube" },
+  { icon: FaInstagram, href: import.meta.env.VITE_SOCIAL_INSTAGRAM || "https://instagram.com", label: "Instagram" },
+  { icon: FaXTwitter, href: import.meta.env.VITE_SOCIAL_X || "https://x.com", label: "X (Twitter)" },
+  { icon: FaFacebook, href: import.meta.env.VITE_SOCIAL_FACEBOOK || "https://facebook.com", label: "Facebook" }
+];
 
 
 export function Footer() {
@@ -33,14 +34,14 @@ export function Footer() {
             </p>
             <div className="mt-5 flex gap-2.5">
               {socials.map((s) =>
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-card text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-secondary hover:text-secondary">
-                
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={s.label}
+                  className="grid h-10 w-10 place-items-center rounded-xl border border-border bg-card text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-secondary hover:text-secondary">
+
                   <s.icon className="h-[1.05rem] w-[1.05rem]" />
                 </a>
               )}
@@ -51,11 +52,11 @@ export function Footer() {
             <h3 className="text-sm font-bold">Quick Links</h3>
             <ul className="mt-4 space-y-2.5">
               {quickLinks.map((l) =>
-              <li key={l.to}>
+                <li key={l.to}>
                   <Link
-                  to={l.to}
-                  className="text-sm text-muted-foreground transition-colors hover:text-secondary">
-                  
+                    to={l.to}
+                    className="text-sm text-muted-foreground transition-colors hover:text-secondary">
+
                     {l.label}
                   </Link>
                 </li>
@@ -67,11 +68,11 @@ export function Footer() {
             <h3 className="text-sm font-bold">Learn</h3>
             <ul className="mt-4 space-y-2.5">
               {categories.map((c) =>
-              <li key={c.slug}>
+                <li key={c.slug}>
                   <Link
-                  to={c.to}
-                  className="text-sm text-muted-foreground transition-colors hover:text-secondary">
-                  
+                    to={c.to}
+                    className="text-sm text-muted-foreground transition-colors hover:text-secondary">
+
                     {c.title}
                   </Link>
                 </li>

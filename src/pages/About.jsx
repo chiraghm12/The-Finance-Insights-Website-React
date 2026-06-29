@@ -80,7 +80,7 @@ export function About() {
             transition={{ duration: 0.4, delay: i * 0.08 }}
             className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 shadow-soft">
             
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold/15 text-gold-foreground">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold/15 text-gold">
                 <r.icon className="h-5 w-5" />
               </span>
               <div>

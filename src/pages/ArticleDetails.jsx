@@ -12,12 +12,14 @@ import {
   ThumbsDown,
   ThumbsUp,
   Brain,
-  X } from
-"lucide-react";
-import { FaInstagram, FaXTwitter, FaYoutube, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
+  X
+} from
+  "lucide-react";
+import { FaInstagram, FaXTwitter, FaYoutube, FaFacebook } from "react-icons/fa6";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { ReadingProgress } from "@/components/ReadingProgress";
 import { ChartGlyph } from "@/components/ChartGlyph";
+import { HammerGraphic } from "@/components/HammerGraphic";
 import { FAQ } from "@/components/FAQ";
 import { PatternCard } from "@/components/PatternCard";
 import { getArticle, getRelatedArticles } from "@/data/articles";
@@ -41,7 +43,7 @@ function Section({
       viewport={{ once: true, margin: "-80px" }}
       transition={{ duration: 0.5 }}
       className="scroll-mt-28">
-      
+
       <div className="flex items-center gap-3">
         <span className="grid h-10 w-10 place-items-center rounded-xl bg-secondary/12 text-secondary">
           <Icon className="h-5 w-5" />
@@ -80,7 +82,8 @@ export function ArticleDetails({ slug }) {
         await navigator.share({ title: article.title, url: window.location.href });
       } catch {
 
-        /* cancelled */}
+        /* cancelled */
+      }
     }
   };
 
@@ -93,17 +96,17 @@ export function ArticleDetails({ slug }) {
         <div className="mx-auto max-w-4xl px-4 pb-12 pt-6 sm:px-6">
           <Breadcrumb
             items={[
-            { label: "Learn", to: "/learn" },
-            ...(category ? [{ label: category.title, to: category.to }] : []),
-            { label: article.title }]
+              { label: "Learn", to: "/learn" },
+              ...(category ? [{ label: category.title, to: category.to }] : []),
+              { label: article.title }]
             } />
-          
+
           <div className="mt-6 flex flex-wrap items-center gap-2">
             <span className={`rounded-full px-3 py-1 text-xs font-bold ${difficultyClass(article.difficulty)}`}>
               {article.difficulty}
             </span>
             {article.sentiment &&
-            <span className={`rounded-full px-3 py-1 text-xs font-bold ${sentimentClass(article.sentiment)}`}>
+              <span className={`rounded-full px-3 py-1 text-xs font-bold ${sentimentClass(article.sentiment)}`}>
                 {article.sentiment}
               </span>
             }
@@ -120,24 +123,24 @@ export function ArticleDetails({ slug }) {
             <button
               onClick={() => toggleBookmark(article.slug)}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold shadow-soft transition-colors hover:border-secondary hover:text-secondary">
-              
+
               <Bookmark className={`h-4 w-4 ${saved ? "fill-secondary text-secondary" : ""}`} />
               {saved ? "Saved" : "Save"}
             </button>
             <button
               onClick={handleShare}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold shadow-soft transition-colors hover:border-secondary hover:text-secondary">
-              
+
               <Share2 className="h-4 w-4" /> Share
             </button>
             <div className="flex items-center gap-1.5">
-              {[FaXTwitter, FaWhatsapp, FaLinkedin].map((I, i) =>
-              <a
-                key={i}
-                href="#"
-                aria-label="Share"
-                className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-secondary">
-                
+              {[FaInstagram, FaXTwitter, FaYoutube, FaFacebook].map((I, i) =>
+                <a
+                  key={i}
+                  href="#"
+                  aria-label="Share"
+                  className="grid h-9 w-9 place-items-center rounded-full border border-border bg-card text-muted-foreground transition-colors hover:text-secondary">
+
                   <I className="h-4 w-4" />
                 </a>
               )}
@@ -147,13 +150,20 @@ export function ArticleDetails({ slug }) {
       </header>
 
       <div className="mx-auto max-w-4xl px-4 py-14 sm:px-6">
-        {/* Pattern illustration placeholder */}
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-primary p-8 shadow-card">
-          <span className="text-xs font-bold uppercase tracking-wider text-secondary">
+        {/* Pattern illustration */}
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-surface p-8 shadow-card">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-secondary/5 via-transparent to-transparent opacity-50" />
+          <span className="relative z-10 text-sm font-bold uppercase tracking-wider text-secondary">
             Pattern Illustration
           </span>
-          <div className="mt-4 aspect-[16/7] w-full rounded-2xl bg-background/10 p-6">
-            <ChartGlyph sentiment={article.sentiment} className="h-full w-full" />
+          <div className="mt-6 flex w-full justify-center py-6 sm:py-8">
+            {article.slug === "hammer" ? (
+              <HammerGraphic />
+            ) : (
+              <div className="aspect-[16/7] w-full">
+                <ChartGlyph sentiment={article.sentiment} patternId={article.slug} className="h-full w-full" />
+              </div>
+            )}
           </div>
         </div>
 
@@ -177,7 +187,7 @@ export function ArticleDetails({ slug }) {
           <Section icon={ListChecks} title="Identification Rules">
             <ul className="space-y-2.5">
               {article.identification.map((rule, i) =>
-              <li key={i} className="flex items-start gap-3">
+                <li key={i} className="flex items-start gap-3">
                   <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-secondary/15 text-secondary">
                     <Check className="h-3 w-3" strokeWidth={3} />
                   </span>
@@ -190,7 +200,7 @@ export function ArticleDetails({ slug }) {
           <Section icon={Target} title="Trading Strategy">
             <ol className="space-y-3">
               {article.strategy.map((step, i) =>
-              <li key={i} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
+                <li key={i} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4">
                   <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-gradient-accent text-sm font-bold text-secondary-foreground">
                     {i + 1}
                   </span>
@@ -209,7 +219,7 @@ export function ArticleDetails({ slug }) {
               </div>
               <ul className="mt-4 space-y-2.5">
                 {article.advantages.map((a, i) =>
-                <li key={i} className="flex items-start gap-2 text-sm text-foreground">
+                  <li key={i} className="flex items-start gap-2 text-sm text-foreground">
                     <Check className="mt-0.5 h-4 w-4 shrink-0 text-secondary" />
                     {a}
                   </li>
@@ -223,7 +233,7 @@ export function ArticleDetails({ slug }) {
               </div>
               <ul className="mt-4 space-y-2.5">
                 {article.disadvantages.map((d, i) =>
-                <li key={i} className="flex items-start gap-2 text-sm text-foreground">
+                  <li key={i} className="flex items-start gap-2 text-sm text-foreground">
                     <X className="mt-0.5 h-4 w-4 shrink-0 text-destructive" />
                     {d}
                   </li>
@@ -263,13 +273,13 @@ export function ArticleDetails({ slug }) {
 
       {/* Related */}
       {related.length > 0 &&
-      <section className="border-t border-border bg-surface">
+        <section className="border-t border-border bg-surface">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2 className="text-2xl font-extrabold">Related lessons</h2>
             <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {related.map((a, i) =>
-            <PatternCard key={a.slug} article={a} index={i} />
-            )}
+                <PatternCard key={a.slug} article={a} index={i} />
+              )}
             </div>
           </div>
         </section>

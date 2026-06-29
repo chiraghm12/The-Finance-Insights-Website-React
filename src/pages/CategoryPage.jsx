@@ -2,6 +2,7 @@ import { PageHeader } from "@/layouts/PageHeader";
 import { CategoryListing } from "@/components/CategoryListing";
 import { getCategory } from "@/data/categories";
 import { getArticlesByCategory } from "@/data/articles";
+import { CandleIntro } from "@/components/CandleIntro";
 
 /** Generic category page reused by all six learning tracks. */
 export function CategoryPage({ slug }) {
@@ -24,6 +25,8 @@ export function CategoryPage({ slug }) {
         description={category.description}
         crumbs={[{ label: "Learn", to: "/learn" }, { label: category.title }]} />
       
+      {slug === "candlestick-patterns" && <CandleIntro />}
+
       <CategoryListing articles={items} />
     </>);
 

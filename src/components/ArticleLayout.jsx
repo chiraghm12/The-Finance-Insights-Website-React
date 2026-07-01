@@ -126,7 +126,7 @@ export function ArticleLayout({ article, related = [], children }) {
 
       {/* Related */}
       {related.length > 0 &&
-        <section className="border-t border-border bg-surface">
+        <section className="border-t border-border bg-background">
           <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
             <h2 className="text-2xl font-extrabold">Related lessons</h2>
             <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

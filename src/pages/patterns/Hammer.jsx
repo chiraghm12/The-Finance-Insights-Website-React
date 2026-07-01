@@ -3,8 +3,9 @@ import { HammerGraphic } from "@/components/HammerGraphic";
 import { ChartGlyph } from "@/components/ChartGlyph";
 import { FAQ } from "@/components/FAQ";
 import { getRelatedArticles } from "@/data/articles";
-import { Lightbulb, Layers, Brain, ListChecks, Target, ThumbsUp, ThumbsDown, Check, X, Search, ArrowDown } from "lucide-react";
+import { Lightbulb, Layers, Brain, ListChecks, Target, ThumbsUp, ThumbsDown, Check, X, Search, ArrowDown, Activity } from "lucide-react";
 import { FaYoutube, FaInstagram } from "react-icons/fa6";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 
 const HammerChartIllustration = () => {
   const candles = [
@@ -378,6 +379,68 @@ export function Hammer() {
           <HammerChartIllustration />
         </Section>
 
+        <Section icon={Activity} title="Hammer with Other Technical Tools">
+          <p className="mb-4">Hammers are most effective when combined with other technical analysis tools.</p>
+          <p className="mb-6">This approach can help confirm potential reversals and reduce false signals. Consider using hammers in conjunction with:</p>
+
+          <div className="grid gap-6 grid-cols-1 mt-6">
+            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-xs">1</span>
+                Support and resistance levels
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                A hammer forming at a known support level can be a particularly strong signal.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-xs">2</span>
+                Trend lines and channels
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Look for hammers that touch or slightly break a downward trend line.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-xs">3</span>
+                Moving averages
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                A hammer near a significant moving average (like the 50-day or 200-day MA) can be noteworthy.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-xs">4</span>
+                Oscillators
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Oversold readings on RSI or Stochastic when a hammer forms can strengthen the bullish case.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-5 shadow-sm">
+              <h4 className="font-bold text-foreground mb-2 flex items-center gap-2">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary text-xs">5</span>
+                Fibonacci retracements
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Hammers forming near key Fibonacci levels may indicate potential reversals.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8">
+            <p className="font-semibold text-secondary mb-2">A hammer forming where multiple technical factors align can be a powerful bullish reversal indicator.</p>
+            <p className="text-sm text-foreground">For example, a hammer at a support level with oversold RSI readings and increased volume would be a strong bullish signal.</p>
+          </div>
+        </Section>
+
         {/* Pros / cons */}
         <div className="grid gap-5 sm:grid-cols-2">
           <div className="rounded-2xl border border-secondary/30 bg-secondary/5 p-6">
@@ -430,14 +493,30 @@ export function Hammer() {
           </div>
         </div>
 
-        {/* Real chart placeholder */}
         <Section icon={Layers} title="On a Real Chart">
-          <div className="mt-1 grid place-items-center rounded-2xl border border-dashed border-border bg-card p-12 text-center">
-            <Layers className="h-8 w-8 text-muted-foreground/50" />
-            <p className="mt-3 text-sm text-muted-foreground">
-              Real chart example placeholder — annotated screenshot coming soon.
-            </p>
-          </div>
+          <Carousel className="w-full mt-4">
+            <CarouselContent>
+              {[1, 2, 3].map((index) => (
+                <CarouselItem key={index}>
+                  <div className="p-1">
+                    <div className="flex items-center justify-center rounded-2xl border border-dashed border-border bg-card overflow-hidden">
+                      <img
+                        src={`/patterns/hammer-chart-${index}.png`}
+                        alt={`Hammer pattern real chart example ${index}`}
+                        className="object-contain w-full h-auto max-h-[500px]"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.parentElement.innerHTML = `<div class="flex flex-col items-center justify-center text-center p-12 text-muted-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mb-3 opacity-50"><polygon points="12 2 2 22 22 22"></polygon></svg><p class="text-sm">Image ${index} missing</p><p class="text-xs opacity-70 mt-1">Place image at /public/patterns/hammer-chart-${index}.png</p></div>`;
+                        }}
+                      />
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-4" />
+            <CarouselNext className="right-4" />
+          </Carousel>
         </Section>
 
         {/* Media placeholders */}

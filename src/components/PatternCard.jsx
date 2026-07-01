@@ -22,6 +22,7 @@ export function PatternCard({ article, index = 0 }) {
         <div className="relative aspect-[5/3] overflow-hidden bg-surface">
           <ChartGlyph
             sentiment={article.sentiment}
+            patternId={article.slug}
             className="absolute inset-0 h-full w-full p-5 transition-transform duration-500 group-hover:scale-110" />
           
           {article.sentiment &&

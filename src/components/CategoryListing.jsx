@@ -4,7 +4,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { PatternCard } from "@/components/PatternCard";
 
 
-const filters = ["All", "Beginner", "Intermediate", "Advanced"];
+const filters = ["All", "Beginner", "Intermediate", "Advanced", "Bullish", "Bearish"];
 
 /** Reusable searchable + filterable grid used by every category page. */
 export function CategoryListing({ articles }) {
@@ -18,7 +18,7 @@ export function CategoryListing({ articles }) {
       !q ||
       a.title.toLowerCase().includes(q) ||
       a.excerpt.toLowerCase().includes(q);
-      const matchesFilter = filter === "All" || a.difficulty === filter;
+      const matchesFilter = filter === "All" || a.difficulty === filter || a.sentiment === filter;
       return matchesQuery && matchesFilter;
     });
   }, [articles, query, filter]);
